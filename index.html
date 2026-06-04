@@ -231,13 +231,13 @@
         <td style="text-align:center;color:var(--text-light);">—</td>
       </tr>
       <tr class="total-row">
-        <td colspan="2" style="text-align:right;padding-right:20px;color:var(--primary);">合計總分　100%</td>
+        <td colspan="2" style="text-align:right;padding-right:20px;color:var(--primary);">合計換算總分　100%</td>
         <td style="text-align:center;font-size:15px;" id="coreTotal">—</td>
       </tr>
     </table>
 
-    <!-- 參考條件（加分項） -->
-    <div class="section-header" style="margin-top:2px;"><span class="dot"></span>參考條件（加分項）　<span style="font-weight:300;font-size:12px;opacity:.85;">每項 5分，滿分 20分</span></div>
+    <!-- 參考條件 -->
+    <div class="section-header" style="margin-top:2px;"><span class="dot"></span>參考條件</div>
     <table class="ftable">
       <colgroup>
         <col style="width:80px">
@@ -317,10 +317,12 @@
       </tr>
       <tr>
         <td style="vertical-align:middle;padding:10px 12px;">
-          <div class="inline">
-            <span style="font-size:13px;">管理能力訓練：</span>
-            <label style="cursor:pointer"><input class="rb" type="radio" name="mgmt"> 完成</label>
-            <label style="cursor:pointer"><input class="rb" type="radio" name="mgmt"> 未完成</label>
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <span style="font-size:13px;white-space:nowrap;padding-top:2px;">管理能力訓練：</span>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label style="cursor:pointer;display:flex;align-items:center;gap:4px;"><input class="rb" type="radio" name="mgmt"> 完成</label>
+              <label style="cursor:pointer;display:flex;align-items:center;gap:4px;"><input class="rb" type="radio" name="mgmt"> 未完成</label>
+            </div>
           </div>
         </td>
         <td style="font-size:13px;color:var(--text-muted);vertical-align:middle;padding:10px 14px;">依教育訓練管理程序完成管理訓練課程尤佳</td>
