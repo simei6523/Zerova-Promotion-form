@@ -176,7 +176,7 @@
       </tr>
       <tr>
         <td class="lbl">原　薪　資</td>
-        <td><input class="fi" type="text" placeholder="現任薪資"></td>
+        <td><input class="fi" type="text" id="oriSalary" placeholder="現任薪資" oninput="calcRaise()"></td>
         <td class="lbl" style="text-align:center;letter-spacing:0.15em;">單　位</td>
         <td style="padding:7px 12px;">
           <div class="inline">
@@ -191,9 +191,9 @@
         <td colspan="4" style="padding:10px 14px;">
           <div class="inline" style="margin-bottom:7px;">
             <label style="cursor:pointer"><input class="cb" type="checkbox"> 調整後薪資金額：</label>
-            <input class="fi" type="text" placeholder="金額" style="width:130px">
+            <input class="fi" type="text" id="newSalary" placeholder="金額" style="width:130px" oninput="calcRaise()">
             <label style="cursor:pointer;margin-left:16px;"><input class="cb" type="checkbox"> 調幅：</label>
-            <input class="fi" type="text" placeholder="%" style="width:70px">
+            <input class="fi" type="text" id="raiseRate" placeholder="自動計算" style="width:90px;background:#f7f5f0;color:var(--primary);font-weight:600;" readonly>
           </div>
           <div class="inline">
             <span>※ 同級薪資級距（HR填寫）：</span><input class="fi" type="text" style="width:150px">
@@ -420,6 +420,19 @@
 
 <script>
   document.getElementById('applyDate').valueAsDate = new Date();
+
+  // 調幅自動計算
+  function calcRaise() {
+    var ori = parseFloat(document.getElementById('oriSalary').value.replace(/,/g, '')) || 0;
+    var nw  = parseFloat(document.getElementById('newSalary').value.replace(/,/g, '')) || 0;
+    var el  = document.getElementById('raiseRate');
+    if (ori > 0 && nw > 0) {
+      var rate = ((nw - ori) / ori * 100).toFixed(1);
+      el.value = rate + '%';
+    } else {
+      el.value = '';
+    }
+  }
 
   function calcSeniority() {
     var s = document.getElementById('startDate');
